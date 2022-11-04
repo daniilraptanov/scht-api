@@ -1,7 +1,7 @@
 export interface IRegisterDTO {
     email: string;
-    password: string;
     login: string;
+    password?: string;
 }
 
 export interface IUserDTO extends IRegisterDTO {

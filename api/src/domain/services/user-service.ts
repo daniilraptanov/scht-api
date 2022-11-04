@@ -1,7 +1,7 @@
-import { IUser } from "../models/user";
+import { IUserDTO } from "../dto/user-dto";
 
 export interface IUserService {
-    getUserByEmail(email: string): Promise<IUser>;
-    createOrUpdateUser(user: IUser): Promise<boolean>;
+    getUserByEmail(email: string): Promise<IUserDTO>;
+    createOrUpdateUser(user: IUserDTO): Promise<boolean>;
     removeUserById(id: string): Promise<boolean>;
 }
