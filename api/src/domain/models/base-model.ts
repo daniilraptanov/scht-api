@@ -5,4 +5,6 @@ export interface IBaseModel {
         status: StatusCodes,
         message: string,
     }
+
+    assignData(dto: any): void;
 }

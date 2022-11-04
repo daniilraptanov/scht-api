@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { ILogin, IUser } from "../domain/models/user";
+import { UserMapperImpl } from "../mappers/user-mapper";
 
 
 export class UserController {
@@ -16,7 +17,7 @@ export class UserController {
 
             res.status(StatusCodes.OK).json({
                 token: result.token,
-                user: userMapper.convertToLoginDTO(result.user)
+                user: userMapper.convertToDTO(result.user)
             });
         } catch (err) {
             console.log(err);

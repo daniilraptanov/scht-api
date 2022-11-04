@@ -1,11 +1,12 @@
 import { Response } from "express";
 import { StatusCodes } from "http-status-codes";
+import { IUserDTO } from "../domain/dto/user-dto";
 import { ILogin, IUser } from "../domain/models/user";
 import { IAuthService } from "../domain/services/auth-service";
 import { IUserService } from "../domain/services/user-service";
 import { BaseModelImpl } from "./base-model";
 
-export class UserModelImpl extends BaseModelImpl implements IUser {
+export class UserModelImpl extends BaseModelImpl<IUserDTO> implements IUser {
     id: string;
     last_entry: Date;
     
@@ -16,7 +17,7 @@ export class UserModelImpl extends BaseModelImpl implements IUser {
     private authService: IAuthService;
     private userService: IUserService;
 
-    protected constructor(authServiceImpl: IAuthService, userServiceImpl: IUserService) {
+    constructor(authServiceImpl: IAuthService, userServiceImpl: IUserService) {
         super();
 
         this.authService = authServiceImpl;

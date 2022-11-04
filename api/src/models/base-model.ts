@@ -1,7 +1,7 @@
 import { StatusCodes } from "http-status-codes";
 import { IBaseModel } from "../domain/models/base-model";
 
-export class BaseModelImpl implements IBaseModel {
+export class BaseModelImpl<DTO> implements IBaseModel {
     errorObject: {
         status: StatusCodes,
         message: string,
@@ -11,5 +11,9 @@ export class BaseModelImpl implements IBaseModel {
         this.errorObject = {
             status: status, message: message
         };
+    }
+
+    assignData(dto: DTO): void {
+        Object.assign(this, dto);
     }
 }

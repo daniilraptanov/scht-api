@@ -1,8 +1,7 @@
-import { IUserDTO } from "../dto/user-dto";
+import { ILoginDTO, IUserDTO } from "../dto/user-dto";
 import { IBaseModel } from "./base-model";
 
-export interface ILogin {
-    token: string;
+export interface ILogin extends ILoginDTO {
     user: IUser;
 }
 
