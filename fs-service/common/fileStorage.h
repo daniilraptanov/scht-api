@@ -1,12 +1,13 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include "queryParser.h"
 
 using namespace std;
 
-class FileStorage
+class FileStorage : public QueryParser
 {
     public:
-        FileStorage(vector<string> params);
+        FileStorage(vector<string> params) : QueryParser(params) {};
         string execute();
 };

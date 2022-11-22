@@ -1,18 +1,18 @@
 #include <iostream>
+#include <vector>
 #include "user.h"
 
 using namespace std;
 
 class User
 {
-    public:
-        User(string id, string chatName="")
+   public:
+        vector<string> User::USER_FIELDS = {"id", "chatName"};
+        static string execute(int method vector<vector<string>> fields)
         {
-            id = id;
-            chatName = chatName;
+            
         };
 
-        string id;
-        string chatName;
+    private:
+        User();
 };
-

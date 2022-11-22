@@ -1,13 +1,15 @@
 #pragma once
 #include <iostream>
+#include<vector>
 
 using namespace std;
 
 class User
 {
     public:
-        User(string id, string chatName="");
+        static vector<string> USER_FIELDS;
+        static string execute(vector<vector<string>> fields);
 
-        string id;
-        string chatName;
+    private:
+        User();
 };
