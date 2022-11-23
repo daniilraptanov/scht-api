@@ -1,19 +1,19 @@
 #include <iostream>
 #include <vector>
-#include "user.h"
+#include "chat.h"
 #include "baseModel.h"
 
 using namespace std;
 
-class User : protected BaseModel
+class Chat : protected BaseModel
 {
    public:
-        vector<string> User::USER_FIELDS = {"id", "chatName"};
+        vector<string> Chat::CHAT_FIELDS = {"id", "userA", "userB"};
         static string execute(int method, vector<vector<string>> fields)
         {
-            BaseModel::execute("users", method, fields);
+            BaseModel::execute("chats", method, fields);
         };
 
     private:
-        User();
+        Chat();
 };

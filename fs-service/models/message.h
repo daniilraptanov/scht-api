@@ -5,12 +5,12 @@
 
 using namespace std;
 
-class User : protected BaseModel
+class Message : protected BaseModel
 {
     public:
-        static vector<string> USER_FIELDS;
+        static vector<string> MESSAGE_FIELDS;
         static string execute(int method, vector<vector<string>> fields);
 
     private:
-        User();
+        Message();
 };
