@@ -11,7 +11,7 @@ class User : protected BaseModel
         vector<string> User::USER_FIELDS = {"id", "chatName"};
         static string execute(int method, vector<vector<string>> fields)
         {
-            BaseModel::execute("users", method, fields);
+            return BaseModel::execute("users", method, fields);
         };
 
     private:

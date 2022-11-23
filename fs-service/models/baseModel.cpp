@@ -6,20 +6,23 @@ using namespace std;
 
 class BaseModel : private FileHandler // add to header
 {
-   protected:
-        static string execute(string tableName, int method, vector<vector<string>> fields)
-        {
-            if (method == 1) // replace this magic numbers
-            {
-                FileHandler::get(tableName, fields);
-            }
-
-            if (method == 2)
-            {
-                FileHandler::post(tableName, fields);
-            }
-        };
-
     private:
         BaseModel();
+
+        int BaseModel::Get = 1;
+        int BaseModel::Post = 2;
+
+    protected:
+        static string execute(string tableName, int method, vector<vector<string>> fields)
+        {
+            if (method == BaseModel::Get)
+            {
+                return FileHandler::get(tableName, fields);
+            }
+
+            if (method == BaseModel::Post)
+            {
+                return FileHandler::post(tableName, fields);
+            }
+        };
 };

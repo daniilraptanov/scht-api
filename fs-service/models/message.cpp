@@ -11,7 +11,7 @@ class Message : protected BaseModel
         vector<string> Message::MESSAGE_FIELDS = {"id", "chatId", "text"};
         static string execute(int method, vector<vector<string>> fields)
         {
-            BaseModel::execute("messages", method, fields);
+            return BaseModel::execute("messages", method, fields);
         };
 
     private:
