@@ -15,5 +15,7 @@ class FileStorage : public QueryParser
 
     public:
         FileStorage(vector<string> params) : QueryParser(params) {};
-        string execute();
+        string execute() {
+            return "aaaaaaaaa"; // TODO
+        };
 };

@@ -7,7 +7,7 @@ using namespace std;
 class QueryParser
 {
     public:
-        QueryParser(vector<string> params);
+        QueryParser(vector<string> params) {};
         int getMethod();
         int getModel();
         vector<vector<string>> getFields(vector<string> keys);
