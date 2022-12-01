@@ -1,18 +1,23 @@
 #include <iostream>
 #include <vector>
 #include "baseModel.h"
+#include "fileHandler.h"
 
 using namespace std;
 
-class BaseModel : private FileHandler // add to header
+
+class BaseModel : private FileHandler
 {
     private:
-        BaseModel();
-
-        int BaseModel::Get = 1;
-        int BaseModel::Post = 2;
+        static int BaseModel::Get;
+        static int BaseModel::Post;
 
     protected:
+        BaseModel() : FileHandler() {
+            BaseModel::Get = 1;
+            BaseModel::Post = 2;
+        };
+
         static string execute(string tableName, int method, vector<vector<string>> fields)
         {
             if (method == BaseModel::Get)
@@ -26,3 +31,4 @@ class BaseModel : private FileHandler // add to header
             }
         };
 };
+

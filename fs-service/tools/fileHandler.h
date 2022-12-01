@@ -6,10 +6,9 @@ using namespace std;
 
 class FileHandler
 {
-    public:
-        string get();
-        string post();
+    protected:
+        static string get(string tableName, vector<vector<string>> fields);
+        static string post(string tableName, vector<vector<string>> fields);
 
-    private:
         FileHandler();
 };
