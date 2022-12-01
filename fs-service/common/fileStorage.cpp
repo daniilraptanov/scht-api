@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
 #include "fileStorage.h"
-#include "queryParser.h"
-#include "user.h"
-#include "chat.h"
-#include "message.h"
+#include "../tools/queryParser.h"
+#include "../models/user.h"
+#include "../models/chat.h"
+#include "../models/message.h"
 
 using namespace std;
 
@@ -44,9 +44,6 @@ class FileStorage : protected QueryParser
             {
                 result = Message::execute(method, QueryParser::getFields(Message::MESSAGE_FIELDS));
             }
-
-            // 4) execute method with model fields -> /services
-            // 5) convert to string array for Node js app -> /tools/queryParser
 
             return result;
         };

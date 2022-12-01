@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include<vector>
-#include "baseModel.h"
+#include "../models/baseModel.h"
 
 using namespace std;
 

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "chat.h"
-#include "baseModel.h"
+#include "../models/baseModel.h"
 
 using namespace std;
 

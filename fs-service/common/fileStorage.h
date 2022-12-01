@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include "queryParser.h"
+#include "../tools/queryParser.h"
 
 using namespace std;
 

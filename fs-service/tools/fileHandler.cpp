@@ -1,5 +1,6 @@
 #include <iostream>
-#include<vector>
+#include <fstream>
+#include <vector>
 #include "fileHandler.h"
 
 using namespace std;
@@ -14,7 +15,9 @@ class FileHandler
 
         static string post(string tableName, vector<vector<string>> fields)
         {
-
+            ofstream file(tableName.append(".txt"));
+            file << "test-data";
+            file.close();
         };
 
         FileHandler() {};

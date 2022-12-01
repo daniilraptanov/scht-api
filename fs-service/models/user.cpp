@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "user.h"
-#include "baseModel.h"
+#include "../models/baseModel.h"
 
 using namespace std;
 
