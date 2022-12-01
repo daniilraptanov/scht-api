@@ -8,43 +8,28 @@
 
 using namespace std;
 
-class FileStorage : protected QueryParser
+FileStorage::FileStorage(vector<string> params) : QueryParser(params)
 {
+    params = params;
+}
 
-    private:
-        vector<string> params;
+string FileStorage::execute()
+{
+    int method = QueryParser::getMethod();
+    int model = QueryParser::getModel();
 
-        int FileStorage::User = 1;
-        int FileStorage::Chat = 2;
-        int FileStorage::Message = 3;
-    public:
-        FileStorage(vector<string> params) : QueryParser(params)
-        {
-            params = params;
-        }
+    if (model == FileStorage::User)
+    {
+        return User::execute(method, QueryParser::getFields(User::USER_FIELDS));
+    }
 
-        string execute()
-        {
-            string result;
+    if (model == FileStorage::Chat)
+    {
+        return Chat::execute(method, QueryParser::getFields(Chat::CHAT_FIELDS));
+    }
 
-            int method = QueryParser::getMethod();
-            int model = QueryParser::getModel();
-
-            if (model == FileStorage::User)
-            {
-                result = User::execute(method, QueryParser::getFields(User::USER_FIELDS));
-            }
-
-            if (model == FileStorage::Chat)
-            {
-                result = Chat::execute(method, QueryParser::getFields(Chat::CHAT_FIELDS));
-            }
-
-            if (model == FileStorage::Message)
-            {
-                result = Message::execute(method, QueryParser::getFields(Message::MESSAGE_FIELDS));
-            }
-
-            return result;
-        };
+    if (model == FileStorage::Message)
+    {
+        return Message::execute(method, QueryParser::getFields(Message::MESSAGE_FIELDS));
+    }
 };

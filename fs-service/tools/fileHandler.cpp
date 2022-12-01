@@ -5,20 +5,17 @@
 
 using namespace std;
 
-class FileHandler
+
+string FileHandler::get(string tableName, vector<vector<string>> fields)
 {
-    protected:
-        static string get(string tableName, vector<vector<string>> fields)
-        {
 
-        };
+};
 
-        static string post(string tableName, vector<vector<string>> fields)
-        {
-            ofstream file(tableName.append(".txt"));
-            file << "test-data";
-            file.close();
-        };
+string FileHandler::post(string tableName, vector<vector<string>> fields)
+{
+    ofstream file(tableName.append(".txt"));
+    file << "test-data";
+    file.close();
 
-        FileHandler() {};
+    return "batman";
 };

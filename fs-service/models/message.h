@@ -12,5 +12,5 @@ class Message : protected BaseModel
         static string execute(int method, vector<vector<string>> fields);
 
     private:
-        Message();
+        Message() {};
 };

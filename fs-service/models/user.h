@@ -12,5 +12,5 @@ class User : protected BaseModel
         static string execute(int method, vector<vector<string>> fields);
 
     private:
-        User();
+        User() {};
 };

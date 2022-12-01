@@ -10,5 +10,5 @@ class FileHandler
         static string get(string tableName, vector<vector<string>> fields);
         static string post(string tableName, vector<vector<string>> fields);
 
-        FileHandler();
+        FileHandler() {};
 };

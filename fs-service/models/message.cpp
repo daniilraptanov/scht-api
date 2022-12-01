@@ -5,15 +5,10 @@
 
 using namespace std;
 
-class Message : protected BaseModel
-{
-   public:
-        vector<string> Message::MESSAGE_FIELDS = {"id", "chatId", "text"};
-        static string execute(int method, vector<vector<string>> fields)
-        {
-            return BaseModel::execute("messages", method, fields);
-        };
 
-    private:
-        Message();
+vector<string> Message::MESSAGE_FIELDS = {"id", "chatId", "text"};
+string Message::execute(int method, vector<vector<string>> fields)
+{
+    return BaseModel::execute("messages", method, fields);
 };
+
