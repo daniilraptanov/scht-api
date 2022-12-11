@@ -1,4 +1,5 @@
 import express from "express";
+import { AuthValidator } from "./middleware/auth-validator";
 
 const cors = require("cors");
 require('dotenv-safe').config();
@@ -10,6 +11,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use(AuthValidator.auth);
 app.use("/api/v1", require("./routes/auth-routes"));
 
 
