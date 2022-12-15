@@ -1,25 +1,27 @@
 #include <iostream>
 #include <vector>
-#include "../domain/baseModel.h"
-#include "../domain/fileHandler.h"
+#include "./baseModel.h"
+#include "./fileHandler.h"
 
 using namespace std;
 
 
-BaseModel::BaseModel() : FileHandler() {
-    BaseModel::Get = 1;
-    BaseModel::Post = 2;
-};
+// BaseModel::BaseModel() : FileHandler() {
+//     // BaseModel::Get = 1;
+//     // BaseModel::Post = 2;
+// };
 
 string BaseModel::execute(string tableName, int method, vector<vector<string>> fields)
 {
-    if (method == BaseModel::Get)
+    if (method == 1)
     {
         return FileHandler::get(tableName, fields);
     }
 
-    if (method == BaseModel::Post)
+    if (method == 2)
     {
         return FileHandler::post(tableName, fields);
     }
+
+    return "";
 };

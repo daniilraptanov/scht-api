@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include "../domain/message.h"
-#include "../domain/baseModel.h"
+#include "./message.h"
+#include "./baseModel.h"
 
 using namespace std;
 

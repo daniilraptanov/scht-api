@@ -14,6 +14,6 @@ class FileStorage : public QueryParser
         int Message = 3;
 
     public:
-        FileStorage(std::vector<std::string> params) : QueryParser(params) {};
+        FileStorage(std::vector<std::string> params);
         std::string execute();
 };

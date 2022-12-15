@@ -1,13 +1,13 @@
 #include <iostream>
 #include <string>
-#include "../domain/queryParser.h"
+#include "./queryParser.h"
 
 using namespace std;
 
 
 QueryParser::QueryParser(vector<string> params)
 {
-    params = params;
+    QueryParser::params = params;
 };
 
 int QueryParser::getMethod()
@@ -44,5 +44,6 @@ vector<string> QueryParser::findParam(string key)
             return {currentKey, currentValue};
         }
     }
-    
+
+    return {};
 };

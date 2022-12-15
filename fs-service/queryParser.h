@@ -6,7 +6,7 @@
 class QueryParser
 {
     public:
-        QueryParser(std::vector<std::string> params) {};
+        QueryParser(std::vector<std::string> params);
         int getMethod();
         int getModel();
         std::vector<std::vector<std::string>> getFields(std::vector<std::string> keys);

@@ -1,22 +1,24 @@
 #include <iostream>
 #include <vector>
-#include "../domain/fileStorage.h"
-#include "../domain/queryParser.h"
-#include "../domain/user.h"
-#include "../domain/chat.h"
-#include "../domain/message.h"
+#include "./fileStorage.h"
+#include "./queryParser.h"
+#include "./user.h"
+#include "./chat.h"
+#include "./message.h"
 
 using namespace std;
 
 FileStorage::FileStorage(vector<string> params) : QueryParser(params)
 {
-    params = params;
+    FileStorage::params = params;
 }
+
 
 string FileStorage::execute()
 {
-    int method = QueryParser::getMethod();
-    int model = QueryParser::getModel();
+    int method = getMethod();
+    int model = getModel();
+
 
     if (model == FileStorage::User)
     {
@@ -32,4 +34,6 @@ string FileStorage::execute()
     {
         return Message::execute(method, QueryParser::getFields(Message::MESSAGE_FIELDS));
     }
+
+    return "";
 };
