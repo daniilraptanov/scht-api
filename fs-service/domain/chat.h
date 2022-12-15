@@ -1,15 +1,15 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include "../models/baseModel.h"
+#include "./baseModel.h"
 
 
-class Message : protected BaseModel
+class Chat : protected BaseModel
 {
     public:
-        static std::vector<std::string> MESSAGE_FIELDS;
+        static std::vector<std::string> CHAT_FIELDS;
         static std::string execute(int method, std::vector<std::vector<std::string>> fields);
 
     private:
-        Message() {};
+        Chat() {};
 };

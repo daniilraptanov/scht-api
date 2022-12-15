@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include "../models/baseModel.h"
-#include "../tools/fileHandler.h"
+#include "../domain/baseModel.h"
+#include "../domain/fileHandler.h"
 
 using namespace std;
 

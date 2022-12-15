@@ -1,10 +1,10 @@
 #include <iostream>
 #include <vector>
-#include "fileStorage.h"
-#include "../tools/queryParser.h"
-#include "../models/user.h"
-#include "../models/chat.h"
-#include "../models/message.h"
+#include "../domain/fileStorage.h"
+#include "../domain/queryParser.h"
+#include "../domain/user.h"
+#include "../domain/chat.h"
+#include "../domain/message.h"
 
 using namespace std;
 

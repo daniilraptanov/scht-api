@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "queryParser.h"
+#include "../domain/queryParser.h"
 
 using namespace std;
 
