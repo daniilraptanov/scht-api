@@ -7,15 +7,13 @@
 class FileStorage : public QueryParser
 {
     private:
-        vector<string> params;
+        std::vector<std::string> params;
 
         int User = 1;
         int Chat = 2;
         int Message = 3;
 
     public:
-        FileStorage(vector<string> params) : QueryParser(params) {};
-        string execute() {
-            return "aaaaaaaaa"; // TODO
-        };
+        FileStorage(std::vector<std::string> params) : QueryParser(params) {};
+        std::string execute();
 };

@@ -3,13 +3,12 @@
 #include <vector>
 #include "../models/baseModel.h"
 
-using namespace std;
 
 class Message : protected BaseModel
 {
     public:
-        static vector<string> MESSAGE_FIELDS;
-        static string execute(int method, vector<vector<string>> fields);
+        static std::vector<std::string> MESSAGE_FIELDS;
+        static std::string execute(int method, std::vector<std::vector<std::string>> fields);
 
     private:
         Message() {};

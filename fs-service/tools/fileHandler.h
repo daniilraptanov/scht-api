@@ -2,13 +2,12 @@
 #include <iostream>
 #include<vector>
 
-using namespace std;
 
 class FileHandler
 {
     protected:
-        static string get(string tableName, vector<vector<string>> fields);
-        static string post(string tableName, vector<vector<string>> fields);
+        static std::string get(std::string tableName, std::vector<std::vector<std::string>> fields);
+        static std::string post(std::string tableName, std::vector<std::vector<std::string>> fields);
 
         FileHandler() {};
 };

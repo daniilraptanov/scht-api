@@ -3,7 +3,6 @@
 #include <vector>
 #include "../tools/fileHandler.h"
 
-using namespace std;
 
 class BaseModel : private FileHandler
 {
@@ -13,5 +12,5 @@ class BaseModel : private FileHandler
 
     protected:
         BaseModel() : FileHandler() {};
-        static string execute(string tableName, int method, vector<vector<string>> fields);
+        static std::string execute(std::string tableName, int method, std::vector<std::vector<std::string>> fields);
 };

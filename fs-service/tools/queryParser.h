@@ -2,17 +2,16 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
 
 class QueryParser
 {
     public:
-        QueryParser(vector<string> params) {};
+        QueryParser(std::vector<std::string> params) {};
         int getMethod();
         int getModel();
-        vector<vector<string>> getFields(vector<string> keys);
+        std::vector<std::vector<std::string>> getFields(std::vector<std::string> keys);
 
     private:
-        vector<string> params;
-        vector<string> findParam(string key);
+        std::vector<std::string> params;
+        std::vector<std::string> findParam(std::string key);
 };
