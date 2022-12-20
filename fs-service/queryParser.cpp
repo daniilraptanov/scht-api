@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <string>
 #include "./queryParser.h"
 
@@ -37,13 +38,24 @@ vector<string> QueryParser::findParam(string key)
 {
     for (int i = 0; i < params.capacity(); i++)
     {
-        string currentKey = params[i].substr(0, params[i].find(":"));
-        string currentValue = params[i].substr(1, params[i].find(":"));
-        if (currentKey == key)
+        vector<string> current = QueryParser::split(params[i], ':'); 
+        if (current[0] == key)
         {
-            return {currentKey, currentValue};
+            return current;
         }
     }
 
     return {};
 };
+
+vector<string> QueryParser::split(const string &s, char delim) {
+    vector<string> result;
+    stringstream ss (s);
+    string item;
+
+    while (getline(ss, item, delim)) {
+        result.push_back (item);
+    }
+
+    return result;
+}

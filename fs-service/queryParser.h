@@ -14,4 +14,5 @@ class QueryParser
     private:
         std::vector<std::string> params;
         std::vector<std::string> findParam(std::string key);
+        std::vector<std::string> split(const std::string &s, char delim);
 };
