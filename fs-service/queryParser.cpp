@@ -1,7 +1,7 @@
 #include <iostream>
-#include <sstream>
 #include <string>
 #include "./queryParser.h"
+#include "./tools.h"
 
 using namespace std;
 
@@ -23,22 +23,35 @@ int QueryParser::getModel()
     return stoi(currentModel[1]);
 };
 
-vector<vector<string>> QueryParser::getFields(vector<string> keys)
+vector<string> QueryParser::getFields(vector<string> keys)
 {
-    vector<vector<string>> result = {};
+    vector<string> result = {};
     for (int i = 0; i < keys.capacity(); i++)
     {
-        result.push_back(findParam(keys[i]));
+        result.push_back(findField(keys[i]));
     }
     return result;
 };
 
+string QueryParser::findField(string key)
+{
+    for (int i = 0; i < params.capacity(); i++)
+    {
+        vector<string> current = split(params[i], ':'); 
+        if (current[0] == key)
+        {
+            return params[i];
+        }
+    }
+
+    return "";
+}
 
 vector<string> QueryParser::findParam(string key)
 {
     for (int i = 0; i < params.capacity(); i++)
     {
-        vector<string> current = QueryParser::split(params[i], ':'); 
+        vector<string> current = split(params[i], ':'); 
         if (current[0] == key)
         {
             return current;
@@ -48,14 +61,3 @@ vector<string> QueryParser::findParam(string key)
     return {};
 };
 
-vector<string> QueryParser::split(const string &s, char delim) {
-    vector<string> result;
-    stringstream ss (s);
-    string item;
-
-    while (getline(ss, item, delim)) {
-        result.push_back (item);
-    }
-
-    return result;
-}

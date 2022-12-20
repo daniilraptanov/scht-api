@@ -9,10 +9,10 @@ class QueryParser
         QueryParser(std::vector<std::string> params);
         int getMethod();
         int getModel();
-        std::vector<std::vector<std::string>> getFields(std::vector<std::string> keys);
+        std::vector<std::string> getFields(std::vector<std::string> keys);
 
     private:
         std::vector<std::string> params;
         std::vector<std::string> findParam(std::string key);
-        std::vector<std::string> split(const std::string &s, char delim);
+        std::string findField(std::string key);
 };

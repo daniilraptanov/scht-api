@@ -11,7 +11,7 @@ using namespace std;
 //     // BaseModel::Post = 2;
 // };
 
-string BaseModel::execute(string tableName, int method, vector<vector<string>> fields)
+string BaseModel::execute(string tableName, int method, vector<string> fields)
 {
     if (method == 1)
     {

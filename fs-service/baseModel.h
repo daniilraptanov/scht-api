@@ -8,5 +8,5 @@ class BaseModel : private FileHandler
 {
     protected:
         BaseModel();
-        static std::string execute(std::string tableName, int method, std::vector<std::vector<std::string>> fields);
+        static std::string execute(std::string tableName, int method, std::vector<std::string> fields);
 };
