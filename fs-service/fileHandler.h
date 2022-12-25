@@ -10,4 +10,7 @@ class FileHandler
         static std::string post(std::string tableName, std::vector<std::string> fields);
 
         FileHandler();
+
+    private:
+        static std::string getIdFromFields(std::vector<std::string> fields);
 };
