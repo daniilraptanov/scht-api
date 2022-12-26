@@ -26,7 +26,7 @@ string FileHandler::get(string tableName, vector<string> fields)
     for (int entityIndex = 0; entityIndex < entities.capacity(); entityIndex++)
     {
         vector<string> currentEntity = split(entities[entityIndex], ';');
-        for (int fieldIndex = 0; fieldIndex < fields.capacity() - 1; fieldIndex++)
+        for (int fieldIndex = 0; fieldIndex < fields.capacity(); fieldIndex++) // TODO :: length - 1 ?
         {
             vector<string> findParam = split(fields[fieldIndex], ':');
             for (int currentIndex = 0; currentIndex < currentEntity.capacity(); currentIndex++)
@@ -47,42 +47,40 @@ string FileHandler::post(string tableName, vector<string> fields)
     string dbName = "database/";
 
     // TODO :: update by id
-    string current;
-    for (int fieldIndex = 0; fieldIndex < fields.capacity(); fieldIndex++)
+    string current = "";
+    for (int fieldIndex = 0; fieldIndex < fields.capacity() - 1; fieldIndex++)
     {
         vector<string> field = split(fields[fieldIndex], ':');
         if (field[0] == "id")
         {
-            current = FileHandler::get(tableName, {field});
+            current = FileHandler::get(tableName, {fields[fieldIndex]});
         }
     }
 
-    cout << toBool(current) << endl;
-    if (toBool(current))
+    if (current.capacity() > 0)
     {
-        cout << current << endl;
-        // string entity;
-        // vector<string> entities;
+        string entity;
+        vector<string> entities;
 
-        // fstream currentFile;
-        // currentFile.open(dbName.append(tableName.append(".txt")));
+        fstream currentFile;
+        currentFile.open(dbName.append(tableName.append(".txt")));
 
-        // while (currentFile >> entity)
-        // {
-        //     entities.push_back(entity);
-        // }
+        while (currentFile >> entity)
+        {
+            entities.push_back(entity);
+        }
 
-        // string currentId = FileHandler::getIdFromFields(fields);
-        // for (int entityIndex = 0; entityIndex < entities.capacity(); entityIndex++)
-        // {
-        //     vector<string> currentEntity = split(entities[entityIndex], ':');
-        //     if (currentEntity[0] == currentId)
-        //     {
-        //         continue;
-        //     }
-
-            
-        // }
+        string currentId = FileHandler::getIdFromFields(fields);
+        for (int entityIndex = 0; entityIndex < entities.capacity(); entityIndex++)
+        {
+            vector<string> currentEntity = split(entities[entityIndex], ';');
+            vector<string> id = split(currentEntity[0], ':');
+            if (id[1] == currentId)
+            {
+                cout << id[1] << "   " << currentId << endl;
+            }
+            // cout << currentEntity[0] << "   " << currentId << endl;
+        }
     }
 
     // --------------------------------
@@ -103,7 +101,7 @@ string FileHandler::post(string tableName, vector<string> fields)
 string FileHandler::getIdFromFields(vector<string> fields)
 {
     string currentId;
-    for (int index = 0; index < fields.capacity(); index++)
+    for (int index = 0; index < fields.capacity() - 1; index++)
     {
         vector<string> field = split(fields[index], ':');
         if (field[0] == "id")
