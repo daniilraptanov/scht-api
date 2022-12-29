@@ -45,6 +45,7 @@ string FileHandler::get(string tableName, vector<string> fields)
 string FileHandler::post(string tableName, vector<string> fields)
 {
     string dbName = "database/";
+    string tempTableName = dbName + tableName;
 
     string currentId = FileHandler::getIdFromFields(fields);
 
@@ -82,7 +83,7 @@ string FileHandler::post(string tableName, vector<string> fields)
     }
 
     ofstream file;
-    file.open(dbName.append(tableName.append("-temp").append(".txt")), std::ios_base::app);
+    file.open(tempTableName.append("-temp").append(".txt"), std::ios_base::app);
 
     bool isUpdated = false;
     string entityForUpdate;
