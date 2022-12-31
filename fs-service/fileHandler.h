@@ -13,4 +13,5 @@ class FileHandler
 
     private:
         static std::string getIdFromFields(std::vector<std::string> fields);
+        static void appendToFile(std::string path, std::vector<std::string> fields);
 };

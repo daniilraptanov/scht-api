@@ -49,11 +49,33 @@ string FileHandler::post(string tableName, vector<string> fields)
 
     string currentId = FileHandler::getIdFromFields(fields);
 
-    // if (!toBool(currentId))
-    // {
-    //     // write to file
-    //     return "ok";
-    // }
+    string entity;
+    vector<string> entities;
+
+    fstream currentFile;
+    currentFile.open(dbName + tableName + ".txt");
+
+    while (currentFile >> entity)
+    {
+        entities.push_back(entity);
+    }
+
+    bool isExist = false;
+    for (int entityIndex = 0; entityIndex < entities.capacity(); entityIndex++)
+    {
+        vector<string> currentEntity = split(entities[entityIndex], ';');
+        vector<string> existingId = split(currentEntity[0], ':');
+        if (currentId == existingId[1])
+        {
+            isExist = true;
+        }
+    }
+
+    if (!isExist)
+    {
+        FileHandler::appendToFile(dbName + tableName + ".txt", fields);
+        return "row was appended";
+    }
 
     // Update by id
     string current = "";
@@ -68,18 +90,7 @@ string FileHandler::post(string tableName, vector<string> fields)
 
     if (current.capacity() <= 0)
     {
-        return "error";
-    }
-
-    string entity;
-    vector<string> entities;
-
-    fstream currentFile;
-    currentFile.open(dbName.append(tableName.append(".txt")));
-
-    while (currentFile >> entity)
-    {
-        entities.push_back(entity);
+        return "error in post method";
     }
 
     ofstream file;
@@ -112,7 +123,7 @@ string FileHandler::post(string tableName, vector<string> fields)
 
     file.close();
 
-    return "ok";
+    return "row was rewrote";
 };
 
 string FileHandler::getIdFromFields(vector<string> fields)
@@ -128,4 +139,14 @@ string FileHandler::getIdFromFields(vector<string> fields)
     }
 
     return currentId;
+}
+
+void FileHandler::appendToFile(string path, vector<string> fields)
+{
+        ofstream file;
+        file.open(path, std::ios_base::app);
+        ostream_iterator<string> iterator(file, ";");
+        copy(fields.begin(), fields.end(), iterator);
+        file << "\n";
+        file.close();
 }
