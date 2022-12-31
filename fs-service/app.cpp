@@ -19,6 +19,3 @@ int main()
 
     return 0;
 }
-
-// compile program => g++ *.cpp -o fs
-// run program (example) => ./app.exe method:1 model:1 id:9b307c28-3d31-48aa-8405-46c0e0f62cf3
